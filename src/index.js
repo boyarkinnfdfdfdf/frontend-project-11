@@ -4,7 +4,7 @@ import i18next from 'i18next';
 import resources from './locale/index.js';
 import app from './watcher.js';
 
-const runApp = async () => {
+document.addEventListener('DOMContentLoaded', async () => {
   await i18next.init({
     lng: 'ru',
     debug: true,
@@ -12,7 +12,4 @@ const runApp = async () => {
   });
 
   app();
-};
-
-runApp();
-  
+});
