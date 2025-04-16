@@ -59,11 +59,14 @@ const handleClick = (watchedState) => (e) => {
   watchedState.currentPost = id;
 };
 
-export default () => {
+export default async (runApp) => {
+  await runApp();
   const state = {
     form: {
       state: '',
-      data: { link: [] },
+      data: {
+        link: [],
+      },
     },
     errors: [],
     feeds: [],
