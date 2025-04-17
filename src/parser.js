@@ -5,7 +5,7 @@ export default (xmlString) => {
   const parser = new DOMParser();
   const doc1 = parser.parseFromString(xmlString.replaceAll('\n', '').replaceAll('  ', ''), 'application/xml');
   if (!doc1.querySelector('rss')) {
-    throw new Error();
+  throw new Error();
   }
   const feed = { id: uniqueId() };
   const title = doc1.querySelector('title');

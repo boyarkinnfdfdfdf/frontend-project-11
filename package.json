@@ -4,6 +4,8 @@
   "description": "[![Actions Status](https://github.com/boyarkinnfdfdfdf/frontend-project-11/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/boyarkinnfdfdfdf/frontend-project-11/actions)",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "build": "webpack --mode production",
     "start": "webpack serve --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
