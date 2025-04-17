@@ -15,6 +15,9 @@ module.exports = {
     open: true,
     port: 8080,
     hot: true,
+    client: {
+      overlay: false,
+    },
   },
   module: {
     rules: [
@@ -37,12 +40,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './dist/index.html',
+      template: './index.html',
     }),
   ],
   resolve: {
     extensions: ['.js'],
   },
 };
-console.log("1111111Webpack config loaded");
 
