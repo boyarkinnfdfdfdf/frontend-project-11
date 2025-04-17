@@ -1,5 +1,3 @@
- 
- 
 import onChange from 'on-change';
 import { isEmpty } from 'lodash';
 import axios from 'axios';

@@ -4,12 +4,11 @@ import pluginReact from 'eslint-plugin-react';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
-  
   {
-    files: ["**/*.{js,jsx,mjs,cjs}"],
+    files: ['**/*.{js,jsx,mjs,cjs}'],
     languageOptions: {
       ecmaVersion: 2022,
-      sourceType: "module",
+      sourceType: 'module',
       globals: globals.browser,
     },
     plugins: {
@@ -17,32 +16,25 @@ export default defineConfig([
     },
     settings: {
       react: {
-        version: "detect",
+        version: 'detect',
       },
     },
     rules: {
-      
+      'no-param-reassign': ['error', { props: false }],
       ...js.configs.recommended.rules,
-      
       ...pluginReact.configs.recommended.rules,
     },
   },
-
-  
   {
-    files: ["webpack.config.js"],
+    files: ['webpack.config.js'],
     languageOptions: {
       ecmaVersion: 2022,
-      sourceType: "script",
+      sourceType: 'script',
       globals: globals.node,
     },
-    rules: {
-      
-    },
+    rules: {},
   },
-
-  
   {
-    ignores: ["node_modules/", "dist/", "build/"],
+    ignores: ['node_modules/', 'dist/', 'build/'],
   },
 ]);

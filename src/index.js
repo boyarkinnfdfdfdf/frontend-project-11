@@ -6,8 +6,9 @@ import app from './watcher.js';
 
 const runApp = async () => {
   await i18next.init({
-  lng: 'ru',
-  resources,
-});
+    lng: 'ru',
+    resources,
+  });
 };
+
 app(runApp);
