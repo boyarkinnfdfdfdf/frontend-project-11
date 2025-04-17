@@ -10,6 +10,4 @@ const runApp = async () => {
     resources,
   });
 };
-
 app(runApp);
-  

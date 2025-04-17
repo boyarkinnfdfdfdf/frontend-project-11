@@ -9,4 +9,4 @@ export default {
       posts: 'Посты',
     },
   };
-  
+   
