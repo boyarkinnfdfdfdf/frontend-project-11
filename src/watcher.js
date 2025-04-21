@@ -50,6 +50,7 @@ const updateAllFeeds = (watchedState) => {
 
 const handleSubmit = (watchedState) => async (e) => {
   e.preventDefault();
+  // eslint-disable-next-line no-param-reassign
   watchedState.feedAdding = 'loading';
 
   const formData = new FormData(e.target);
@@ -57,7 +58,9 @@ const handleSubmit = (watchedState) => async (e) => {
 
   const errors = await isValid(valueUrl, watchedState.form.data.link);
   if (!isEmpty(errors)) {
+    // eslint-disable-next-line no-param-reassign
     watchedState.feedAdding = 'validationFailed';
+    // eslint-disable-next-line no-param-reassign
     watchedState.errors = errors;
     return;
   }
@@ -78,17 +81,20 @@ const handleSubmit = (watchedState) => async (e) => {
       id: uniqueId(),
       feedId,
     }));
-
+    // eslint-disable-next-line no-param-reassign
     watchedState.feeds.push(feedWithId);
     watchedState.posts.push(...postsWithId);
     watchedState.feedAdding = 'added';
     watchedState.form.data.link.push(valueUrl);
     e.target.reset();
   } catch (err) {
+    // eslint-disable-next-line no-param-reassign
     watchedState.feedAdding = 'failed';
     if (err.message === 'Network Error') {
+      // eslint-disable-next-line no-param-reassign
       watchedState.errorMessage = 'Network Error';
     } else {
+      // eslint-disable-next-line no-param-reassign
       watchedState.errorMessage = 'Parser Error';
     }
   }
@@ -96,6 +102,7 @@ const handleSubmit = (watchedState) => async (e) => {
 
 const handleClick = (watchedState) => (e) => {
   const { id } = e.target.dataset;
+  // eslint-disable-next-line no-param-reassign
   watchedState.shownPosts.push(id);
   watchedState.currentPost = id;
 };

@@ -146,7 +146,6 @@ export const createPosts = (posts, handleClick) => {
   });
 };
 
-
 export const renderModal = (link, title, description) => {
   const h5 = document.querySelector('#modal h5');
   const divBody = document.querySelector('.modal-body');
