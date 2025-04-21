@@ -36,7 +36,7 @@ const updateAllFeeds = (watchedState) => {
           }));
         watchedState.posts.push(...newPosts);
       } catch (err) {
-        
+        // intentionally ignored
       }
     });
 

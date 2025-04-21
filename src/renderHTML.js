@@ -1,6 +1,5 @@
 import i18next from 'i18next';
 
-
 export const createFeedbackElement = () => {
   const elem = document.createElement('p');
   elem.classList.add(
@@ -15,9 +14,8 @@ export const createFeedbackElement = () => {
 };
 
 
-const getFeedbackElement = () => {
-  return document.querySelector('p.feedback') ?? createFeedbackElement();
-};
+const getFeedbackElement = () =>
+  document.querySelector('p.feedback') ?? createFeedbackElement();
 
 export const renderErrors = (errors) => {
   const elem = getFeedbackElement();
@@ -52,7 +50,6 @@ const renderHTML = () => {
   const divPosts = document.querySelector('div.posts');
   const divFeeds = document.querySelector('div.feeds');
 
-  
   const divCardFeeds = document.createElement('div');
   divCardFeeds.classList.add('card', 'border-0');
   divFeeds.appendChild(divCardFeeds);
