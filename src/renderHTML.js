@@ -13,9 +13,7 @@ export const createFeedbackElement = () => {
   return elem;
 };
 
-
-const getFeedbackElement = () =>
-  document.querySelector('p.feedback') ?? createFeedbackElement();
+const getFeedbackElement = () => document.querySelector('p.feedback') ?? createFeedbackElement();
 
 export const renderErrors = (errors) => {
   const elem = getFeedbackElement();
@@ -45,7 +43,6 @@ export const renderSuccess = () => {
   elem.textContent = i18next.t('successUrl');
 };
 
-
 const renderHTML = () => {
   const divPosts = document.querySelector('div.posts');
   const divFeeds = document.querySelector('div.feeds');
@@ -67,7 +64,6 @@ const renderHTML = () => {
   ulFeeds.classList.add('list-group', 'border-0', 'rounded-0');
   divCardFeeds.appendChild(ulFeeds);
 
-
   const divCardPosts = document.createElement('div');
   divCardPosts.classList.add('card', 'border-0');
   divPosts.appendChild(divCardPosts);
@@ -85,7 +81,6 @@ const renderHTML = () => {
   ulPosts.classList.add('list-group', 'border-0', 'rounded-0');
   divCardPosts.appendChild(ulPosts);
 };
-
 
 export const createFeeds = (feed) => {
   if (!document.querySelector('div.feeds ul')) {
@@ -109,7 +104,6 @@ export const createFeeds = (feed) => {
   liFeeds.appendChild(pFeeds);
   ulFeeds.appendChild(liFeeds);
 };
-
 
 export const createPosts = (posts, handleClick) => {
   if (!document.querySelector('div.posts ul')) {
