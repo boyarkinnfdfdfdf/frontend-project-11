@@ -8,6 +8,7 @@ import {
   renderErrorsParser,
   renderModal,
 } from './renderHTML.js';
+import isValid from './validate.js';
 import parser from './parser.js';
 import { uniqueId } from 'lodash';
 
