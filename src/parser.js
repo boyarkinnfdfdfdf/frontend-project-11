@@ -1,35 +1,22 @@
-import { uniqueId } from 'lodash';
-
 export default (xmlString) => {
   const parser = new DOMParser();
-  const doc1 = parser.parseFromString(
-    xmlString.replaceAll('\n', '').replaceAll('  ', ''),
-    'application/xml',
-  );
+  const doc = parser.parseFromString(xmlString, 'application/xml');
 
-  if (!doc1.querySelector('rss')) {
+  if (!doc.querySelector('rss')) {
     throw new Error();
   }
 
-  const feed = { id: uniqueId() };
-  const title = doc1.querySelector('title');
-  const description = doc1.querySelector('description');
-  feed.title = title.textContent.trim();
-  feed.description = description.textContent.trim();
+  const feed = {
+    title: doc.querySelector('title')?.textContent.trim(),
+    description: doc.querySelector('description')?.textContent.trim(),
+  };
 
-  const items = doc1.querySelectorAll('item');
-  const posts = [...items].map((item) => {
-    const titleItem = item.querySelector('title');
-    const descriptionItem = item.querySelector('description');
-    const linkItem = item.querySelector('link');
-
-    const post = { id: uniqueId(), feedId: feed.id };
-    post.link = linkItem.textContent.trim();
-    post.title = titleItem.textContent.trim();
-    post.description = descriptionItem.textContent.trim();
-
-    return post;
-  });
+  const items = doc.querySelectorAll('item');
+  const posts = Array.from(items).map((item) => ({
+    title: item.querySelector('title')?.textContent.trim(),
+    description: item.querySelector('description')?.textContent.trim(),
+    link: item.querySelector('link')?.textContent.trim(),
+  }));
 
   return { feed, posts };
 };

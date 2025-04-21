@@ -99,7 +99,7 @@ export const createPosts = (posts, handleClick) => {
     buttonPosts.classList.add('btn', 'btn-outline-primary', 'btn-sm');
     buttonPosts.dataset.id = post.id;
     buttonPosts.setAttribute('type', 'button');
-    buttonPosts.textContent = 'Просмотр';
+    buttonPosts.textContent = i18next.t('buttons.view');
     buttonPosts.addEventListener('click', handleClick);
     buttonPosts.dataset.bsToggle = 'modal';
     buttonPosts.dataset.bsTarget = '#modal';
