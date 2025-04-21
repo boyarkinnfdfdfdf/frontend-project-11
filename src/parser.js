@@ -1,22 +1,35 @@
+import { uniqueId } from 'lodash';
+
 export default (xmlString) => {
   const parser = new DOMParser();
-  const doc = parser.parseFromString(xmlString, 'application/xml');
+  const doc1 = parser.parseFromString(
+    xmlString.replaceAll('\n', '').replaceAll('  ', ''),
+    'application/xml',
+  );
 
-  if (!doc.querySelector('rss')) {
+  if (!doc1.querySelector('rss')) {
     throw new Error();
   }
 
+  const title = doc1.querySelector('channel > title');
+  const description = doc1.querySelector('channel > description');
   const feed = {
-    title: doc.querySelector('title')?.textContent.trim(),
-    description: doc.querySelector('description')?.textContent.trim(),
+    title: title.textContent.trim(),
+    description: description.textContent.trim(),
   };
 
-  const items = doc.querySelectorAll('item');
-  const posts = Array.from(items).map((item) => ({
-    title: item.querySelector('title')?.textContent.trim(),
-    description: item.querySelector('description')?.textContent.trim(),
-    link: item.querySelector('link')?.textContent.trim(),
-  }));
+  const items = doc1.querySelectorAll('item');
+  const posts = [...items].map((item) => {
+    const titleItem = item.querySelector('title');
+    const descriptionItem = item.querySelector('description');
+    const linkItem = item.querySelector('link');
+
+    return {
+      title: titleItem.textContent.trim(),
+      description: descriptionItem.textContent.trim(),
+      link: linkItem.textContent.trim(),
+    };
+  });
 
   return { feed, posts };
 };

@@ -7,5 +7,6 @@ export default {
     errorNetwork: 'Ошибка сети',
     feeds: 'Фиды',
     posts: 'Посты',
+    buttonWatch: 'Просмотр',
   },
 };
