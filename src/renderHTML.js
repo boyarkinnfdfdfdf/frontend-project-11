@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 
+
 export const createFeedbackElement = () => {
   const elem = document.createElement('p');
   elem.classList.add(
@@ -51,7 +52,7 @@ const renderHTML = () => {
   const divPosts = document.querySelector('div.posts');
   const divFeeds = document.querySelector('div.feeds');
 
- 
+  
   const divCardFeeds = document.createElement('div');
   divCardFeeds.classList.add('card', 'border-0');
   divFeeds.appendChild(divCardFeeds);
@@ -69,7 +70,7 @@ const renderHTML = () => {
   ulFeeds.classList.add('list-group', 'border-0', 'rounded-0');
   divCardFeeds.appendChild(ulFeeds);
 
- 
+
   const divCardPosts = document.createElement('div');
   divCardPosts.classList.add('card', 'border-0');
   divPosts.appendChild(divCardPosts);
