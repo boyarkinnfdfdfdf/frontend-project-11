@@ -35,6 +35,7 @@ const updateAllFeeds = (watchedState) => {
             id: uniqueId(),
             feedId: feed.id,
           }));
+          // eslint-disable-next-line no-param-reassign
         watchedState.posts.push(...newPosts);
       } catch (err) {
         // intentionally ignored
@@ -83,8 +84,11 @@ const handleSubmit = (watchedState) => async (e) => {
     }));
     // eslint-disable-next-line no-param-reassign
     watchedState.feeds.push(feedWithId);
+    // eslint-disable-next-line no-param-reassign
     watchedState.posts.push(...postsWithId);
+    // eslint-disable-next-line no-param-reassign
     watchedState.feedAdding = 'added';
+    // eslint-disable-next-line no-param-reassign
     watchedState.form.data.link.push(valueUrl);
     e.target.reset();
   } catch (err) {
@@ -104,6 +108,7 @@ const handleClick = (watchedState) => (e) => {
   const { id } = e.target.dataset;
   // eslint-disable-next-line no-param-reassign
   watchedState.shownPosts.push(id);
+  // eslint-disable-next-line no-param-reassign
   watchedState.currentPost = id;
 };
 
