@@ -9,6 +9,7 @@ import {
   renderModal,
 } from './renderHTML.js';
 import isValid from './validate.js';
+import getFeed from './getFeed.js';
 import parser from './parser.js';
 import { uniqueId } from 'lodash';
 
